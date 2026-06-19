@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O segundo cérebro que não dorme — pt-BR</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #292929;
+    --text-soft: #555;
+    --rule: #e6e6e6;
+    --accent: #0f6fff;
+    --code-bg: #f6f8fa;
+    --code-text: #24292e;
+    --callout-bg: #faf3dd;
+    --callout-border: #d4af37;
+    --lead: #404040;
+    --font-serif: Charter, "Iowan Old Style", "Source Serif Pro", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-serif);
+    font-size: 19px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+
+  /* Title block */
+  header.title {
+    margin-bottom: 48px;
+  }
+  .kicker {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+    color: var(--text);
+  }
+  .subtitle {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--lead);
+    margin: 0 0 24px;
+  }
+  .meta {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--text-soft);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 12px 0;
+    margin-top: 32px;
+  }
+
+  /* Body */
+  p { margin: 0 0 24px; }
+  p.lead {
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--lead);
+  }
+  p.lead::first-letter {
+    font-weight: 700;
+    font-size: 56px;
+    float: left;
+    line-height: 0.95;
+    padding: 4px 8px 0 0;
+    color: var(--text);
+  }
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin: 56px 0 16px;
+    color: var(--text);
+  }
+  h2::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: var(--text);
+    margin-bottom: 16px;
+  }
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 1.3;
+    margin: 36px 0 12px;
+    color: var(--text);
+  }
+
+  strong { font-weight: 700; }
+  em { font-style: italic; }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(15, 111, 255, 0.3);
+  }
+  a:hover { border-bottom-color: var(--accent); }
+
+  /* Inline code */
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--code-text);
+  }
+
+  /* Blockquote / callout */
+  blockquote {
+    border-left: 4px solid var(--callout-border);
+    background: var(--callout-bg);
+    margin: 32px 0;
+    padding: 16px 22px;
+    font-style: italic;
+    color: var(--text);
+    border-radius: 0 6px 6px 0;
+  }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* Lists */
+  ul, ol {
+    margin: 0 0 24px;
+    padding-left: 30px;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  li::marker { color: var(--text-soft); }
+
+  /* Figures */
+  figure {
+    margin: 40px -32px;
+    text-align: center;
+  }
+  figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+    display: block;
+    margin: 0 auto;
+  }
+  figcaption {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-top: 12px;
+    padding: 0 16px;
+  }
+
+  /* Takeaway list (no bullets, heavier) */
+  .takeaways {
+    list-style: none;
+    padding-left: 0;
+    margin: 28px 0;
+  }
+  .takeaways li {
+    padding: 18px 0 18px 56px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .takeaways li:last-child { border-bottom: none; }
+  .takeaways li {
+    counter-increment: takeaway;
+  }
+  .takeaways {
+    counter-reset: takeaway;
+  }
+  .takeaways li::before {
+    content: counter(takeaway, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 18px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--accent);
+  }
+  .takeaways li strong {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 19px;
+    margin-bottom: 4px;
+  }
+  .takeaways li {
+    margin-bottom: 0;
+  }
+
+  /* Aside / part-2 teaser */
+  .part2 {
+    font-family: var(--font-sans);
+    background: #f5f5f5;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin: 48px 0 0;
+  }
+  .part2 .label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 8px;
+  }
+  .part2 p { margin-bottom: 0; font-size: 16px; }
+
+  footer.byline {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--text-soft);
+  }
+
+  @media (max-width: 720px) {
+    html, body { font-size: 17px; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 24px; }
+    .subtitle { font-size: 19px; }
+    .page { padding: 40px 18px 64px; }
+    figure { margin-left: -8px; margin-right: -8px; }
+    p.lead { font-size: 19px; }
+    p.lead::first-letter { font-size: 44px; }
+  }
+
+  @media print {
+    .page { max-width: 100%; padding: 24px; }
+    figure { margin: 24px 0; page-break-inside: avoid; }
+    h2 { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="title">
+    <div class="kicker">Ecossistema · Arquitetura · Open Source</div>
+    <h1>O segundo cérebro que não dorme: como organizei meu ecossistema open-source de agente pessoal</h1>
+    <p class="subtitle">Topologia, peças e fluxos de um sistema que roda em três nós e funciona 24/7.</p>
+    <div class="meta">Parte 1 · <span>~8 min de leitura</span></div>
+  </header>
+
+  <p class="lead">Três fragmentações que todo mundo que mexe com agentes pessoais conhece: as credenciais dos providers espalhadas em <code>.env</code> que se multiplicam, o contexto de uma sessão que some quando você fecha o client, e ferramentas que até funcionam, mas não conversam entre si — você lembrou num lugar, anotou em outro, e pesquisou num terceiro.</p>
+
+  <p>Eu cansei. Montei um ecossistema que roda em três nós físicos diferentes, com todas as peças em stack aberta, e que persiste memória entre sessões sem eu precisar pensar nisso. Não é sofisticado demais — é só bem organizado. Este artigo é sobre a topologia, as peças e o que cada uma resolve. Os passos de montagem ficam pra parte 2.</p>
+
+  <h2>A topologia: três nós, uma direção</h2>
+
+  <p>O sistema vive em três lugares: um mini-PC ARM (Orange Pi 3b) sobre minha mesa, meu PC pessoal, e um servidor na Oracle Cloud (free tier Ampere A1 + Coolify, sem custo de infra). Cada nó tem um papel claro, e o tráfego entre eles segue uma direção só.</p>
+
+  <figure>
+    <img src="assets/diagrams/05-ecosystem-main.png" alt="Diagrama principal do ecossistema: três nós (PC pessoal, OPI 3b, OCI Server) com agentes, memória e servidores">
+    <figcaption>Diagrama principal — ecossistema completo do Hermes Agent.</figcaption>
+  </figure>
+
+  <p>No OPi roda o Hermes Agent propriamente dito, o Model Router (skill que escolhe o tier de modelo para cada tarefa), e o servidor MCP do Hindsight, que segura memória otimizada para o agente em três janelas — curto, médio e longo prazo. É aqui que o agente efetivamente vive.</p>
+
+  <p>No PC pessoal só ficam duas coisas: o vault do Obsidian (markdown no filesystem) e a interface do usuário. O Obsidian não precisa de servidor — é formato, não software. Cada nó vê a pasta como arquivo local.</p>
+
+  <p>No OCI free tier ficam os serviços persistentes: Headroom (proxy compressor que vou explicar em detalhe), Camofox (browser anti-detecção), Firecrawl (search e scraping), Langfuse (observabilidade), Vikunja (tarefas pessoais via MCP) e Syncthing (sync de arquivos entre os três nós). É o hub de infraestrutura onde tudo que precisa estar sempre de pé mora.</p>
+
+  <h2>O fluxo principal</h2>
+
+  <p>Cada vez que eu digito algo no chat, o pedido atravessa esse caminho:</p>
+
+  <figure>
+    <img src="assets/diagrams/01-request-flow.png" alt="Sub-fluxo de request: User → WebUI Desktop → Hermes → Router → Headroom → Providers">
+    <figcaption>Sub-fluxo de request — caminho de uma mensagem do usuário até o provider.</figcaption>
+  </figure>
+
+  <p>WebUI ou Desktop → Hermes → Model Router → Headroom → um dos quatro providers reais (OpenRouter, Nvidia, Xiaomi, MiniMax). A ordem não é decorativa. Cada peça tem um trabalho e é paga pra fazer um trabalho só.</p>
+
+  <h2>Memória em duas camadas</h2>
+
+  <p>O ponto central do design é que memória para agente é diferente de memória para humano. São produtos diferentes, com formatos diferentes, e um único sistema tentando servir os dois vira algo que ambos usam mal.</p>
+
+  <figure>
+    <img src="assets/diagrams/02-memory-knowledge.png" alt="Sub-fluxo de memória: Hindsight dentro do Hermes para curto/médio/longo prazo; Obsidian replicado via Syncthing entre OPI e PC">
+    <figcaption>Sub-fluxo de memória e conhecimento — duas camadas convivendo.</figcaption>
+  </figure>
+
+  <p>Hindsight roda dentro do Hermes via MCP e guarda memória em três níveis — curto, médio e longo prazo — em formato indexado para que o agente recupere contexto de forma estruturada. É otimizado para a máquina ler, não para o humano ler.</p>
+
+  <p>Obsidian roda no filesystem e guarda as mesmas notas em markdown puro, navegável, linkável, editável. Otimizado para mim ler e mexer. É meu vault, durável, legível sem software.</p>
+
+  <p>A duplicação existe e é proposital: Hindsight é working memory rápido pra sessão, Obsidian é conhecimento durável pra sempre. Mas como o Syncthing replica a pasta do vault entre os três nós sem eu configurar nada, as duas coisas convivem sem brigar pelo mesmo espaço — Hindsight só lê e indexa, Obsidian é dono do arquivo. O OCI atua como hub de replicação.</p>
+
+  <h2>Tarefas e mundo externo</h2>
+
+  <p>Tudo que envolve interação com a web ou com minhas listas pessoais passa pela OCI:</p>
+
+  <figure>
+    <img src="assets/diagrams/03-external-systems.png" alt="Sub-fluxo de external systems: Hermes usa Camofox para sites protegidos, Firecrawl para scraping, Vikunja para tasks via MCP">
+    <figcaption>Sub-fluxo de external systems — Vikunja, Camofox e Firecrawl.</figcaption>
+  </figure>
+
+  <p>Vikunja é meu gerenciador de tarefas pessoais exposto via MCP — Hermes lê, escreve e atualiza minhas listas sem eu abrir outra aba. Tarefas humanas, interface de agente.</p>
+
+  <p>Camofox (porta 9377) é um fork do Firefox com anti-detecção escrita em C++. Quando um site bloqueia meu IP ou pede Cloudflare, Hermes não tenta resolver pela força — passa a URL para o Camofox, que renderiza como um navegador legítimo e devolve o HTML. Sites que me barram hoje: Google search, alguns painéis de cloud e metade dos fóruns com proteção agressiva.</p>
+
+  <p>Firecrawl entrou para substituir o DuckDuckGo nas rotinas automatizadas. Faz search simples e devolve markdown limpo. Não substitui o browser para navegação real, mas substituiu de vez o uso programático de search.</p>
+
+  <p>A razão de tudo isso ficar longe do Hermes é simples: cada um desses serviços tem dependências que mudam, quebram, ou precisam de restart. Mantê-los num nó separado significa que o Hermes — que precisa estar sempre de pé — fica isolado do barulho.</p>
+
+  <h2>Observabilidade</h2>
+
+  <p>Sem isso eu não saberia se o sistema está funcionando nem se está valendo a pena:</p>
+
+  <figure>
+    <img src="assets/diagrams/04-observability.png" alt="Sub-fluxo de observabilidade: Hermes envia traces via OTEL para Langfuse, que entrega dashboards para o usuário">
+    <figcaption>Sub-fluxo de observabilidade — traces e custos via Langfuse + OTEL.</figcaption>
+  </figure>
+
+  <p>Langfuse recebe traces via plugin e OTEL direto do Hermes — toda chamada vira um span com modelo, latência, tokens, custo estimado. O dashboard mostra onde o dinheiro está indo, qual task está arrastando, e qual modelo do Model Router está realmente sendo escolhido vs. qual está sendo chamado por engano.</p>
+
+  <p>Trato observabilidade como infra load-bearing, não como ornamento. Não dá pra melhorar o que você não mede, e sem medir custo por chamada o Model Router vira chute.</p>
+
+  <h2>Duas peças que fazem toda a diferença</h2>
+
+  <p><strong>Headroom na frente do Hermes.</strong> Ele é um proxy HTTP que fica entre o Hermes e os providers reais, e faz duas coisas: comprime o contexto antes de mandar para o provider, e isola credenciais. As API keys que o Hermes guarda são do Headroom, não dos providers — então adicionar, trocar ou revogar um provider é mudança de configuração no Headroom, não no agente. Isso sozinho simplifica o suficiente para que a topologia valha a pena.</p>
+
+  <p><strong>Model Router dentro do Hermes.</strong> Como skill, ele decide em qual tier cair (T1-T5) para cada tarefa antes de chamar o provider. Tarefas triviais vão para o tier mais barato, raciocínio mais pesado sobe de tier. Combinado com a compressão do Headroom, isso é o que torna financeiramente viável um agente que funciona 24/7.</p>
+
+  <p>O truque que amarra as duas peças: todos os endpoints de modelo no Hermes apontam para Headroom. O agente nunca fala com um provider diretamente. Isso é o que permite mover sem reescrever nada.</p>
+
+  <h2>O que dá pra levar</h2>
+
+  <p>Quatro coisas que aprendi montando e operando isso:</p>
+
+  <ul class="takeaways">
+    <li>
+      <strong>Persistência exige memória dividida por quem vai ler.</strong>
+      Agente e humano precisam de formatos diferentes, e a tentativa de unificar geralmente resulta nos dois usando mal. Hindsight para a máquina, Obsidian para mim, Syncthing replicando o vault entre os nós.
+    </li>
+    <li>
+      <strong>Stack aberta e free tier já é produção viável para um agente pessoal.</strong>
+      Orange Pi + free tier OCI rodando tudo que listei aqui sem custo de infra. Capacidades de agente de "nível enterprise" não dependem de orçamento enterprise.
+    </li>
+    <li>
+      <strong>Comprimir contexto na borda é o que torna financeiramente viável.</strong>
+      Sem Headroom entre o Hermes e os providers, eu gastaria três a quatro vezes mais para o mesmo volume de uso. Com, cabe no orçamento mensal de qualquer hobbista.
+    </li>
+    <li>
+      <strong>Observabilidade tem que vir antes da otimização, não depois.</strong>
+      Se eu tivesse começado sem Langfuse, ainda estaria chutando onde o dinheiro estava indo.
+    </li>
+  </ul>
+
+  <div class="part2">
+    <div class="label">Parte 2 — em breve</div>
+    <p>Na próxima parte eu entro na montagem: do OPi ao OCI, do zero ao agente respondendo na WebUI, com Headroom, Model Router e Hindsight rodando em poucas horas. Traz os comandos, os arquivos de configuração e as armadilhas que eu já achei para você não achar.</p>
+  </div>
+
+  <footer class="byline">
+    Se você chegou até aqui, quer trocar uma ideia sobre o setup ou reclamar de algum detalhe, me chama nos comentários. Próxima parada: a parte 2, com tudo no terminal.
+  </footer>
+
+</div>
+</body>
+</html>

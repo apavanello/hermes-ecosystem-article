@@ -1,0 +1,19 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor junk
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Nunca dar commit em node_modules ou venvs (paranóico)
+node_modules/
+.venv/
+venv/
+__pycache__/
