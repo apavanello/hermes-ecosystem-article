@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hermes em três ambientes: como organizei minha topologia pessoal de agente
-    — pt-BR</title>
+  <title>Hermes em três ambientes: como organizei minha topologia pessoal de agente</title>
   <style>
     :root {
       --bg: #ffffff;
@@ -364,13 +363,11 @@
       <div class="meta">Parte 1 · <span>~8 min de leitura</span></div>
     </header>
 
-    <p class="lead">Três problemas que todo mundo que mexe com agentes pessoais conhece: as credenciais dos
-      providers espalhadas em um <code>config.env</code> que se multiplicam e que geram um ponto de falha de segurança,
-      o
-      contexto de uma sessão que some quando você fecha o client ou o agente não salva a memoria no arquivo
-      <code>memory.md</code>
-      porque você esqueceu de salvar ou fechou o client antes de salvar, e as ferramentas de busca ou navegação que até
-      funcionam, mas não conversam entre si ou trazem informações não muito relevantes.
+    <p class="lead">Três problemas que todo mundo que mexe com agentes pessoais conhece: as credenciais dos providers
+      espalhadas em <code>config.env</code> que se multiplicam e viram ponto de falha de segurança; o contexto que se
+      perde com o tempo, mesmo com sistema nativo de recuperação de sessão, quando memórias antigas ou conversas longas
+      não cabem mais no histórico recente; e ferramentas de busca e navegação que até funcionam, mas não conversam entre
+      si.
     </p>
 
     <p>Depois de usar o Hermes e outros agentes como Openfang, Openclaw, Opencrabs entre outros. Eu montei meu
@@ -397,11 +394,9 @@
       rede
       pelo Syncthing.</p>
 
-    <p>No PC pessoal só ficam duas coisas: uma pasta com vault do Obsidian que recebe e envia atravez do syncthing para
-      o
-      OCI e o Hermes (no OPi) fazendo com que cada nó vê a pasta como arquivo local. A interface do Hermes via Desktop
-      ou
-      Webui, e por fim o dashboard do Langfuse. </p>
+    <p>No PC pessoal só fica a interface do Hermes (Desktop/WebUI) e o dashboard do Langfuse, que roda dentro do OCI mas é
+      acessado pelo browser local. O Syncthing chega só com o vault do Obsidian — a ideia é justamente abrir o Obsidian na
+      minha máquina pessoal e acessar os arquivos compartilhados pela rede como se fossem locais.</p>
 
     <p>No OCI free tier ficam os serviços persistentes: Headroom (proxy compressor que vou explicar em detalhes),
       Camofox
@@ -420,20 +415,20 @@
     </figure>
 
     <p>WebUI ou Desktop → Hermes → Model Router → Headroom → um dos quatro providers reais (OpenRouter, Nvidia, Xiaomi,
-      MiniMax). Cada model/provider tem um trabalho especifico assim como um custo e gracas ao Router e o Headroom o
+      MiniMax). Cada model/provider tem um trabalho específico assim como um custo e graças ao Router e o Headroom o
       custo diminui.
     </p>
 
-    <p> O Model router fica responsavel por categorizar o prompt/tool em 5 tiers diferentes sendo eles categorizados
+    <p> O Model router fica responsável por categorizar o prompt/tool em 5 tiers diferentes sendo eles categorizados
       pela
       complexidade da tarefa a ser realizada, assim podemos atribuir tarefas simples a modelos mais baratos e com menos
-      inteligencia e tarefas mais complexas a modelos mais caros e com mais recursos. </p>
+      inteligência e tarefas mais complexas a modelos mais caros e com mais recursos. </p>
 
-    <p> O Headroom fica responsavel por fazer um proxy entre os providers e o Hermes, quando ele recebe um prompt + todo
-      o contexto ele faz uma compressao desse texto todo alem de ajustes e limpeza de itens n~ao utilizados como tags,
-      espacos e caracteres especias e envia para o provider de LLM. Alem disso o Hermes somente tem as apikey do
+    <p> O Headroom fica responsável por fazer um proxy entre os providers e o Hermes, quando ele recebe um prompt + todo
+      o contexto ele faz uma compressão desse texto todo além de ajustes e limpeza de itens não utilizados como tags,
+      espaços e caracteres especiais e envia para o provider de LLM. Além disso o Hermes somente tem as API key do
       headroom
-      e o headroom tem todas as apikeys dos providers, com isso a chance de um vazamento de credenciais diminui pois em
+      e o headroom tem todas as API keys dos providers, com isso a chance de um vazamento de credenciais diminui pois em
       nenhum arquivo local tem as credenciais dos providers.</p>
 
     <p>O truque que amarra as duas peças: todos os endpoints de modelo no Hermes apontam para Headroom. O agente nunca
@@ -517,13 +512,14 @@
         mal. Hindsight para a máquina, Obsidian para mim, Syncthing replicando o vault entre os nós.
       </li>
       <li>
-        <strong>Stack aberta e free tier já viabiliza um agente pessoal.</strong>
-        Orange Pi + free tier OCI rodando tudo que listei aqui sem custo de infra.
+        <strong>Stack aberta e free tier dispensam orçamento.</strong>
+        Orange Pi + free tier OCI rodando tudo que listei aqui sem custo de infra. Capacidades de agente de "nível
+        enterprise" não dependem de orçamento enterprise.
       </li>
       <li>
-        <strong>Comprimir contexto na borda viabiliza financeiramente.</strong>
-        Sem Headroom entre o Hermes e os providers, eu gastaria duas a tres vezes mais tokens para o mesmo volume de
-        uso.
+        <strong>Comprimir contexto na borda é o que viabiliza financeiramente.</strong>
+        Sem Headroom entre o Hermes e os providers, eu gastaria duas a três vezes mais tokens para o mesmo volume de
+        uso. Com ele, cabe no orçamento mensal de qualquer hobbista.
       </li>
       <li>
         <strong>Observabilidade tem que vir antes da otimização, não depois.</strong>
@@ -534,7 +530,8 @@
     <div class="part2">
       <div class="label">Parte 2 — em breve</div>
       <p>Na próxima parte eu entro na montagem: do OPi ao OCI, do zero ao agente respondendo na WebUI, com Headroom,
-        Model Router e Hindsight. Vou trazer os comandos, os arquivos de configuração</p>
+        Model Router e Hindsight. Vou trazer os comandos, os arquivos de configuração e as armadilhas que eu já achei
+        para você não achar.</p>
     </div>
 
     <footer class="byline">
